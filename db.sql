@@ -1,0 +1,56 @@
+-- MariaDB dump 10.19-11.1.2-MariaDB, for Linux (x86_64)
+--
+-- Host: localhost    Database: cloud
+-- ------------------------------------------------------
+-- Server version	11.1.2-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL DEFAULT 0,
+  `full_name` varchar(500) DEFAULT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES
+(1,'Jesus Machaca','Jsus','pbkdf2:sha256:600000$Yju80d49VKBXHi8J$75294f3dc06cd5820f3a8289f7f7fc3613f880e5a9ba6dd36de15f0d9d1d7121'),
+(4,'Jesus Gonzalo','jisas','pbkdf2:sha256:600000$L13G60VhZEjbqCVV$f2af15c9430d6bf8a1cf564ea3bc9c1574360f0a7648455f3b9bafc237fb495b'),
+(5,'Jesuco','jsuco','pbkdf2:sha256:600000$h2DNgOOrSQs99KOG$e1c9f38e4ae3ecf7db698406369d752c735e9e3a2080ab2023d780b457a06564'),
+(6,'dsd','','pbkdf2:sha256:600000$35zBwmzKiZbExVqQ$0f913d57235b064cedc7b7d9623c2793edbe27f2e00b5758224642db079ad857');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-08-26 13:04:54
