@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'SourceCode Pro';
+    src: url(../fonts/SourceCode/SourceCodePro-MediumItalic.ttf);
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto/RobotoMono-Light.ttf);
+}
+
+#body {
+    background: url(../img/wallpapersden.com_minimalistic-dark-hills-blue_3840x2160.jpg) no-repeat center;
+    margin: 0;
+    overflow: hidden;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #2A2F34;
+}   
+
+.navbar .titles {
+    font-size: 40px;
+    font-family: 'SourceCode Pro';
+    color: #fff;
+}
+
+.navbar #logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-left: 30px;
+}

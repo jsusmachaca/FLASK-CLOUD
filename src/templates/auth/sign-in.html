@@ -1,0 +1,24 @@
+{% extends 'layout/layout.html'%}
+
+{% block content %}
+    <section id="container">
+        <div id="form-container">
+            <form action="/sign-in" method="post" id="form">
+                <h1>Sign In</h1>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p id="message" style="color: red;">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <input type="text" name="name" id="name" class="in-form" placeholder="Name" required>
+                <input type="password" name="password" id="password" class="in-form" placeholder="Password" required>
+                <input type="checkbox" name="" id="show-passwd">
+                <a href="/sign-up">Do not you have an account yet?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}
