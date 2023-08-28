@@ -1,8 +1,12 @@
-from flask import Flask, redirect, url_for, render_template, flash, request, session
+from flask import Flask, redirect, url_for, render_template, flash, send_file, request, session
 from flask_mysqldb import MySQL
 from flask_session import Session
 from config.config import Config
 from models.User import User
+import os
+from sys import argv
+
+path = argv[1]
 
 config = Config()
 
@@ -18,9 +22,21 @@ def home():
 @app.route('/home')
 def index():
     if 'username' in session:
-        print(session['username'])
-        print(session)
-        return render_template('index.html')
+        os.chdir(path)
+        data = os.listdir()
+        files = []
+        dirs = []
+        for content in data:
+            if os.path.isdir(content) == True:
+                dirs.append(content)
+            else:
+                files.append(content)
+
+        filesys = {
+            'dirs': dirs,
+            'files': files,
+        }
+        return render_template('index.html', fs=filesys)
     else:
         return redirect(url_for('sign_in'))
 
@@ -64,12 +80,17 @@ def sig_in():
     else:
         return render_template('auth/sign-up.html')
 
-@app.route('/insert', methods=['POST'])
-def insert():
-    session.pop('username')
-    print(session)
+@app.route('/send', methods=['POST'])
+def send():
+    file = request.files.get('file')
+    print(file.filename)
+    file.save(path + file.filename)
     return redirect(url_for('index'))
+
+@app.route('/download/<filename>', methods=['GET'])
+def down(filename):
+    return send_file(path + filename, as_attachment=filename)
 
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.10', port=8000)
+    app.run(host='0.0.0.0', port=8000)
