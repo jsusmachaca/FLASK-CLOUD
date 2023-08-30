@@ -10,12 +10,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <title>Login</title>
+    <title>CLOUD</title>
 </head>
 <body id="body">
     <div class="navbar">
-        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" id="logo">
-        <h1 class="titles">Contacts</h1>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" id="logo">
+            <h1 class="titles">Contacts</h1>
+        </div>
+        {% if current_user.is_authenticated %}
+        <h1 class="titles">{{ current_user.full_name }}</h1>
+        {% endif %}
+        {% if not current_user.is_authenticated %}
+            <h1>Login</h1>
+        {% endif %}
     </div>
     {% block content %}
 
