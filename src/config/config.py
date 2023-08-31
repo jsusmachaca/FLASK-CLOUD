@@ -1,12 +1,15 @@
 from decouple import config
 
 
-
-class DevConfig:
+class Config:
     def __init__(self) -> None:
-        self.DEBUG = True if config('DEBUG') == 'true' else False
         self.SECRET_KEY = 'acdgjDFsusafsHd__asd'
-        self.SESSION_TYPE = 'filesystem'
+
+class DevConfig(Config):
+    def __init__(self) -> None:
+        super().__init__()
+        self.DEBUG = True if config('DEBUG') == 'true' else False
+
 
 class Path:
     dir_path = None

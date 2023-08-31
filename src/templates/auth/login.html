@@ -11,8 +11,8 @@
                             <p id="message" style="color: red;">{{ message }}</p>
                         {% endfor %}
                     {% endif %}
-                {% endwith %}
-
+                {% endwith %}                
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <input type="text" name="name" id="name" class="in-form" placeholder="Name" required>
                 <input type="password" name="password" id="password" class="in-form" placeholder="Password" required>
                 <input type="checkbox" name="" id="show-passwd">
@@ -20,4 +20,6 @@
             </form>
         </div>
     </section>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
 {% endblock %}

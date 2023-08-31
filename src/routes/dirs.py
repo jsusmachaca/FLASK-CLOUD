@@ -6,19 +6,17 @@ from config.config import Path
 dirs_bp = Blueprint('dirs', __name__)
 
 
-@dirs_bp.route('/home/<dir>')
+@dirs_bp.route('/<path:routes>', methods=['GET', 'POST'])
 @login_required
-def dirs(dir):
-    os.chdir(Path.dir_path + dir)
-    print("DIR? ==>")
+def dirs(routes):
+    os.chdir(Path.dir_path + routes)
     files = [content for content in os.listdir() if os.path.isfile(content) == True]
-    dirs = [content for content in os.listdir() if os.path.isdir(content) == True]
-    current = os.getcwd()[1:]
-    print(current)
-    fst = {
-        'dirs': dirs,
+    directories = [content for content in os.listdir() if os.path.isdir(content) == True]
+
+    filesystem = {
+        'directories': directories,
         'files': files,
-        'current': current,
+        'routes': routes,
+        'current_path': os.getcwd()[1:]
     }
-    print("actual ===>",os.getcwd())
-    return render_template('index.html', fs=fst)
+    return render_template('directories.html', fs=filesystem)

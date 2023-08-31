@@ -7,26 +7,16 @@ from config.config import Path
 home_bp = Blueprint('home', __name__)
 
 
-@home_bp.route('/')
-@home_bp.route('/home/')
-def none():
-    return redirect(url_for('home.home'))
-
-@home_bp.route('/home')
+@home_bp.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
     os.chdir(Path.dir_path)
-    data = os.listdir()
-    files = []
-    dirs = []
-    for content in data:
-        if os.path.isdir(content) == True:
-            dirs.append(content)
-        else:
-            files.append(content)
+    files = [content for content in os.listdir() if os.path.isfile(content) == True]
+    directories = [content for content in os.listdir() if os.path.isdir(content) == True]
 
-    filesys = {
-        'dirs': dirs,
+    filesystem = {
+        'directories': directories,
         'files': files,
+        'current_path': Path.dir_path[1:]
     }
-    return render_template('index.html', fs=filesys)
+    return render_template('index.html', fs=filesystem)

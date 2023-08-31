@@ -16,7 +16,6 @@ inpPass.addEventListener('click', ()=> {
     {
         password.type = 'password'
     }
-
 })
 
 /*
