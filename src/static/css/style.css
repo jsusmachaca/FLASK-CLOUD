@@ -78,7 +78,7 @@
     width: 80%;
     max-width: 100%;
     background: #084cdf;
-    color: #084cdf;
+    color: #fff;
     border-radius: 7px;
     border: none;
     cursor: pointer;
@@ -94,22 +94,11 @@
 
 
 .send::file-selector-button {
-    margin-right: 20px;
     border: none;
-    background: #084cdf;
+    background: #0d45a5;
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: 7px;
     color: #fff;
     cursor: pointer;
     transition: background .2s ease-in-out;
-  }
-
-/*
-.send:hover {
-    background-color: #0d45a5;
 }
-
-.send::file-selector-button:hover {
-    background: #0d45a5;
-}
-*/
