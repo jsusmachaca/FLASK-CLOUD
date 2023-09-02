@@ -1,5 +1,5 @@
 @media screen and (max-width: 600px) {
-    #container {
+    #log-container {
         margin-top: 100px;
     }
 
@@ -13,5 +13,66 @@
     #show-passwd {
         border: none;
         transform: translate(160px, -27px);
+    }
+
+    .nav-logo {
+        padding-left: 5px;
+    }
+    
+    .nav-name {
+        padding-right: 5px;
+    }
+
+    .titles {
+        font-size: 25px;
+    }
+    .title {
+        font-size: 15px;
+    }
+
+    .title-log {
+        padding-right: 10px;
+    }
+
+    .content-file button {
+        border: none;
+        margin: 5px 6px !important;
+        border-radius: 20px;
+        padding: 0 50px !important;
+        background-color: #2A2F34;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content-files {
+        border: none;
+        margin: 5px 6px !important;
+        border-radius: 20px;
+        padding: 0 50px !important;
+        background-color: #2A2F34;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .files-container {
+        width: 100% !important;
+    }
+
+    .icons {
+        width: 60px;
+    }
+    .dir-names {
+        font-size: 10px;
+    }
+    .file-names {
+        font-size: 10px;
+    }
+    .send {
+        width: 350px !important;
+        max-width: 100%;
+    }
+    .button-send {
+        width: 50px !important;
+        font-size: 15px !important;
     }
 }

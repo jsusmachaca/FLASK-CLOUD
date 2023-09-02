@@ -3,47 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
-    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">--->
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
     <title>CLOUD</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('home.home') }}">
-                <img src="{{ url_for('static', filename='img/logo.webp') }}" alt="Logo" width="40" height="40" class="d-inline-block align-text-center">
-                <span class="nav-item">CLOUD</span>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a class="" href="{{ url_for('home.home') }}">
+                <img src="{{ url_for('static', filename='img/cloud.png') }}" alt="Logo" width="80" height="40" class="nav-item">
             </a>
-            
+        </div>
+        <div class="nav-name">
             {% if current_user.is_authenticated %}
-                <li class="d-flex nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" type="button"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="titles" id="title">{{ current_user.full_name }}</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ url_for('logout.logout') }}" class="dropdown-item ">Logout</a></li>
-                    </ul>
-                </li>
+                <ul class="nav-item">
+                    <li class="item" type="button"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <h1 class="titles">{{ current_user.full_name }}</h1>
+                    </li>   
+                    <li class="item">
+                        <a href="{{ url_for('logout.logout') }}" class="title item-log">Logout</a>
+                    </li>
+                </ul>
             {% endif %}
-        
+                
             {% if not current_user.is_authenticated %}
-                <h1 class="titles d-flex nav-item">Login</h1>
+                <h1 class="title-log titles">Login</h1>
             {% endif %}
         </div>
-        
+                
     </nav>
-
 
     {% block content %}
 
     {% endblock %}
 
-    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
     
 </body>
 </html>

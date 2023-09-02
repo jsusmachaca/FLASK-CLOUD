@@ -1,10 +1,10 @@
 {% extends 'layouts/layout.html'%}
 
 {% block content %}
-    <section id="container">
+    <section id="log-container">
         <div id="form-container">
             <form action="/login" method="post" id="form">
-                <h1>Sign In</h1>
+                <h1 class="titles">Sign In</h1>
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}
@@ -16,7 +16,7 @@
                 <input type="text" name="name" id="name" class="in-form" placeholder="Name" required>
                 <input type="password" name="password" id="password" class="in-form" placeholder="Password" required>
                 <input type="checkbox" name="" id="show-passwd">
-                <button type="submit">Sign In</button>
+                <button type="submit" class="btn">Sign In</button>
             </form>
         </div>
     </section>
