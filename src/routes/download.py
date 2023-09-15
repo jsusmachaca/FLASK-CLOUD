@@ -8,4 +8,4 @@ downld_dp = Blueprint('download', __name__)
 @downld_dp.route('/download/<path:args>', methods=['GET'])
 @login_required
 def download(args):
-    return send_file( f'/{args}', as_attachment='file')
+    return send_file( f'/{args}')
